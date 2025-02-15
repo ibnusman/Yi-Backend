@@ -3,7 +3,7 @@ import Note from "../models/Note.js";
 
 const router = express.Router();
 
-// ✅ Get all notes
+//  Get all notes
 router.get("/", async (req, res) => {
   try {
     const notes = await Note.find();
@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 });
 
 
-// ✅ Add a new note
+// Add a new note
 router.post("/", async (req, res) => {
   const { title, content } = req.body;
   if (!title || !content) {
@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// ✅ Delete a note
+// Delete a note
 router.delete("/:id", async (req, res) => {
   try {
     const deletedNote = await Note.findByIdAndDelete(req.params.id);
