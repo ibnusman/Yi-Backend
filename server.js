@@ -10,6 +10,15 @@ const app = express(); // ✅ Declare `app` before using it
 
 app.use(cors()); // ✅ CORS must come after `app` is declared
 app.use(express.json()); // ✅ Allows backend to parse JSON
+const corsOptions = {
+  origin: "https://yi-frontend-buuom8h3f-abubakars-projects-5a822278.vercel.app/",
+  methods: "GET,POST,DELETE",
+  credentials: true
+};
+app.use(cors(corsOptions));
+
+
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.DB_URI)
